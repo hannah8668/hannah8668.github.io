@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Hannah8668.GitHub.io by hannah8668</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Hannah8668.GitHub.io</h1>
+        <p class="header">初识 mocha in NodeJS</p>
+
+
+
+        <ul>
+          <li><a class="buttons github" href="https://github.com/hannah8668">GitHub Profile</a></li>
+        </ul>
+
+      </header>
+      <section>
+        <h2>
+<a id="介绍" class="anchor" href="#%E4%BB%8B%E7%BB%8D" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>介绍</h2>
+
+<p>mocha 是一个功能丰富的javascript测试框架，可以运行在nodejs和浏览器环境，使异步测试变得简单有趣。mocha 串联运行测试，允许灵活和精确地报告结果，同时映射未捕获的异常用来纠正测试用例。</p>
+
+<p>支持TDD/BDD 的 开发方式，结合 should.js/expect/chai/better-assert 断言库，能轻松构建各种风格的测试用例。</p>
+
+<h2>
+<a id="安装" class="anchor" href="#%E5%AE%89%E8%A3%85" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>安装</h2>
+
+<p>通过npm全局安装：</p>
+
+<p><code>npm install -g mocha</code></p>
+
+<h2>
+<a id="first-synonymous-assert" class="anchor" href="#first-synonymous-assert" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>first synonymous assert</h2>
+
+<pre lang="//模块依赖"><code>var assert = require("assert");
+//断言条件
+describe('Array', function(){
+    describe('#indexOf()', function(){
+        it('should return -1 when the value is not present', function(){
+            assert.equal(-1, [1,2,3].indexOf(5));
+            assert.equal(-1, [1,2,3].indexOf(0));
+        })
+    })
+}); 
+</code></pre>
+
+<p><strong>describe (moduleName, testDetails)</strong>
+由上述代码可看出，describe是可以嵌套的，比如上述代码嵌套的两个describe就可以理解成测试人员希望测试Array模块下的#indexOf() 子模块。module_name 是可以随便取的，关键是要让人读明白就好。</p>
+
+<p><strong>it (info, function)</strong>
+具体的测试语句会放在it的回调函数里，一般来说info字符串会写期望的正确输出的简要一句话文字说明。当该it block内的test failed的时候控制台就会把详细信息打印出来。一般是从最外层的describe的module_name开始输出（可以理解成沿着路径或者递归链或者回调链），最后输出info，表示该期望的info内容没有被满足。一个it对应一个实际的test case</p>
+
+<p><strong>assert.equal (exp1, exp2)</strong>
+断言判断exp1结果是否等于exp2, 这里采取的等于判断是== 而并非 === 。即 assert.equal(1, ‘1’) 认为是True。这只是nodejs里的assert.js的一种断言形式，下文会提到同样比较常用的should.js。
+如果exp1和exp2均为字符串，字符串比较出错时则控制台会用颜色把相异的部分标出来。</p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
